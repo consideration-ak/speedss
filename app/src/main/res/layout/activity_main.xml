@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+
+    <TextView
+        android:id="@+id/tv_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="点击获取账号按钮自动生成一个随机的ss账号\n也可以自己输入一个账号但是必须是邮箱格式\n密码也是统一密码，如果需要手动设置密码可\n以自定义密码"
+        />
+    <TextView
+        android:id="@+id/tv_get_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_tips"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/et_self_account"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_get_account"
+        android:minWidth="250dp"
+        android:hint="设置自定义邮箱账号"
+
+       />
+    <EditText
+        android:id="@+id/et_self_password"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:minWidth="250dp"
+        android:hint="设置自己的密码"
+        android:layout_below="@+id/et_self_account"
+        />
+    <Button
+        android:id="@+id/btn_create_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="获取账号ss账号"
+        android:layout_below="@+id/et_self_password"
+        android:layout_marginTop="60dp"
+        android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>
