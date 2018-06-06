@@ -22,10 +22,10 @@ public class MyApplication extends Application {
         headers.put("Cookie", "cfduid=d45075650c95fd74bb531b314085d67591527439718");
         headers.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         HttpParams params = new HttpParams();
-        params.put("name", "speedstest");
+//        params.put("name", "speedstest");
         params.put("code", "");
         params.put("repasswd","管道工");
-        params.put("fingerprint", "3440998635");
+//        params.put("fingerprint", "3440998635");
 
 
         //必须调用初始化

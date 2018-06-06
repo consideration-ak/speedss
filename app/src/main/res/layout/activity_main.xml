@@ -29,7 +29,7 @@
         android:id="@+id/et_self_account"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/tv_get_account"
         android:minWidth="250dp"
@@ -52,7 +52,16 @@
         android:layout_height="wrap_content"
         android:text="获取账号ss账号"
         android:layout_below="@+id/et_self_password"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_centerInParent="true"
+        />
+    <Button
+        android:id="@+id/btn_downloadApk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击下载手机端APK"
+        android:layout_below="@+id/btn_create_account"
+        android:layout_marginTop="30dp"
         android:layout_centerInParent="true"
         />
 
