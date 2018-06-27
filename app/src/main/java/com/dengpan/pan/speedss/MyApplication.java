@@ -19,7 +19,7 @@ public class MyApplication extends Application {
         headers.put("X-Requested-With", "XMLHttpRequest");
         headers.put("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36");
 //        headers.put("Accept-Encoding", "gzip, deflate, br");
-        headers.put("Cookie", "cfduid=d45075650c95fd74bb531b314085d67591527439718");
+//        headers.put("Cookie", "cfduid=d45075650c95fd74bb531b314085d67591527439718");
         headers.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         HttpParams params = new HttpParams();
 //        params.put("name", "speedstest");
@@ -83,8 +83,6 @@ public class MyApplication extends Application {
         } catch (Exception e) {
             e.printStackTrace();
 
-        } finally {
-            Log.e(getClass().getSimpleName(),"好玩");
         }
     }
 }

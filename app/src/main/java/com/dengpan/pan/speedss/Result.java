@@ -37,4 +37,8 @@ public class Result {
     public void setMsg(String msg) {
         this.msg = msg;
     }
+
+    public boolean isSucceed(){
+        return ret  == 1;
+    }
 }
