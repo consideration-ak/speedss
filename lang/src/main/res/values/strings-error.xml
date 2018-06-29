@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ERROR_APPLY_MAIL">申请邮件失败</string>
+    <string name="ERROR_APPLY_MAIL_NET">申请邮件失败(网络)</string>
+    <string name="ERROR_SEND_MAIL_CODE">发送邮件验证码失败</string>
+    <string name="ERROR_SEND_MAIL_CODE_NET">发送邮件验证码失败(网络)</string>
+    <string name="ERROR_RECEIVE_MAIN_URL">接收邮件验证码访问失败</string>
+    <string name="ERROR_RECEIVE_MAIN_URL_NET">接收邮件验证码访问失败(网络)</string>
+    <string name="ERROR_PARSE_MAIL_CODE_NET">解析邮件验证码失败(网络)</string>
+    <string name="ERROR_REGISTER_FAIL_WITH_RERSULT">注册失败，参数失败</string>
+    <string name="ERROR_REGISTER_FAIL_NET">注册失败(网络)</string>
+</resources>
