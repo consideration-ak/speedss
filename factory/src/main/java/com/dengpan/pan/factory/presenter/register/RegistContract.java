@@ -1,5 +1,7 @@
 package com.dengpan.pan.factory.presenter.register;
 
+import android.net.Uri;
+
 import com.dengpan.pan.common.factory.presenter.BaseContract;
 import com.dengpan.pan.factory.model.Result;
 
@@ -16,7 +18,7 @@ public interface RegistContract {
          */
         void showResult(Result result,String account,String password);
 
-        void downloadApkOK();
+        void downloadApkOK(Uri uri);
     }
     interface Presenter extends BaseContract.Presenter{
         //1 生成一个邮箱

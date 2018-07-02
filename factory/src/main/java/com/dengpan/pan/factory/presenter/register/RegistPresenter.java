@@ -1,6 +1,8 @@
 package com.dengpan.pan.factory.presenter.register;
 
 import android.annotation.SuppressLint;
+import android.app.DownloadManager;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
@@ -16,6 +18,7 @@ import com.dengpan.pan.factory.data.SpeedSSHelper;
 import com.dengpan.pan.factory.model.ApplyMail;
 import com.dengpan.pan.factory.model.MailResult;
 import com.dengpan.pan.factory.model.Result;
+import com.dengpan.pan.factory.net.DownloadHelper;
 
 
 public class RegistPresenter extends BasePresenter<RegistContract.View> implements RegistContract.Presenter {
@@ -170,6 +173,12 @@ public class RegistPresenter extends BasePresenter<RegistContract.View> implemen
         });
     }
 
+    /**
+     *  正式利用邮件注册账号
+     * @param account
+     * @param password
+     * @param code
+     */
     @Override
     public void register(final String account, final String password, String code) {
         if(getView() != null){
@@ -195,6 +204,14 @@ public class RegistPresenter extends BasePresenter<RegistContract.View> implemen
 
     @Override
     public void downloadClientApk(String path) {
-
+        long id = DownloadHelper.getInstance().startDownloading(path, "application/vnd.android.package-archive", "v2rayNG.apk");
+        DownloadHelper.getInstance().setListener(new DownloadHelper.DownloadListener() {
+            @Override
+            public void downloadSucceed(Uri uri) {
+                if(getView() != null){
+                    getView().downloadApkOK(uri);
+                }
+            }
+        });
     }
 }
