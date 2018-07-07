@@ -82,5 +82,14 @@
         android:layout_marginTop="30dp"
         android:layout_centerInParent="true"
         />
+    <Button
+        android:id="@+id/btn_check_list"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查看已注册账户列表"
+        android:layout_below="@+id/btn_downloadApk"
+        android:layout_marginTop="30dp"
+        android:layout_centerInParent="true"
+        />
 
 </RelativeLayout>

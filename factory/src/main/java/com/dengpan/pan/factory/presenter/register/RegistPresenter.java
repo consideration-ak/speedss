@@ -1,7 +1,9 @@
 package com.dengpan.pan.factory.presenter.register;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.DownloadManager;
+import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
@@ -13,6 +15,7 @@ import com.dengpan.pan.common.factory.data.DataSource;
 import com.dengpan.pan.common.factory.presenter.BasePresenter;
 import com.dengpan.pan.common.utils.StringUtil;
 import com.dengpan.pan.factory.R;
+import com.dengpan.pan.factory.data.DbHelper;
 import com.dengpan.pan.factory.data.MailHelper;
 import com.dengpan.pan.factory.data.SpeedSSHelper;
 import com.dengpan.pan.factory.model.ApplyMail;
@@ -190,6 +193,10 @@ public class RegistPresenter extends BasePresenter<RegistContract.View> implemen
             public void onDataLoad(Result result) {
                 if(getView()!= null){
                     getView().showResult(result,account,password);
+                    boolean b = DbHelper.save(account,password);
+                    if(!b){
+                        getView().showError(R.string.ERROR_SAVA_FAIL);
+                    }
                 }
             }
 

@@ -4,6 +4,8 @@ import com.dengpan.pan.common.app.BaseApplication;
 import com.dengpan.pan.factory.net.NetWork;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.raizlabs.android.dbflow.config.FlowConfig;
+import com.raizlabs.android.dbflow.config.FlowManager;
 
 public class Factory {
 
@@ -18,6 +20,10 @@ public class Factory {
     }
     public static void init(){
         NetWork.init();
+        //初始化数据库
+        FlowManager.init(new FlowConfig.Builder(app())
+                .openDatabasesOnInit(true)
+                .build());
     }
 
     public static Gson getGson() {
@@ -26,4 +32,6 @@ public class Factory {
     public static BaseApplication app(){
         return BaseApplication.getInstance();
     }
+
+
 }

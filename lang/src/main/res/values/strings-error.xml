@@ -9,4 +9,6 @@
     <string name="ERROR_PARSE_MAIL_CODE_NET">解析邮件验证码失败(网络)</string>
     <string name="ERROR_REGISTER_FAIL_WITH_RERSULT">注册失败，参数失败</string>
     <string name="ERROR_REGISTER_FAIL_NET">注册失败(网络)</string>
+
+    <string name="ERROR_SAVA_FAIL">保存失败</string>
 </resources>

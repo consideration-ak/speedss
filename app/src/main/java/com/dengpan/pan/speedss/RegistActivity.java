@@ -222,6 +222,10 @@ public class RegistActivity extends PresenterActivity<RegistContract.Presenter> 
 //        Intent intent = new Intent(this,MainActivity.class);
 //        startActivity(intent);
     }
+    @OnClick(R.id.btn_check_list)
+    void onCheckList(){
+        AccountListActivity.show(this);
+    }
 
 
     /**
