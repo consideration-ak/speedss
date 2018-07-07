@@ -26,7 +26,8 @@ public class StringUtil {
      * @return
      */
     public static String getRandomStr() {
-        String uuid = UUID.randomUUID().toString();
-        return uuid.substring(0, 10);
+//        String uuid = UUID.randomUUID().toString();
+//        return uuid.substring(0, 10);
+        return NameUtils.getCnName();
     }
 }
