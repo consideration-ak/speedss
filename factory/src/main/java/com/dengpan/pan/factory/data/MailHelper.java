@@ -68,10 +68,13 @@ public class MailHelper {
      * @param callback
      */
     public static void receiveMailCode(String account, long time, final DataSource.Callback<MailResult> callback) {
+        OkGo.getInstance().cancelTag("getMailCode");
         OkGo.post(Common.GETMAIL_URL)
-                .headers(NetWork.getMailHeaders())
+                .headers(NetWork.getMailCoderHeaders())
+                .tag("getMailCode")
                 .params("mail",account)
                 .params("time",(System.currentTimeMillis()/1000))
+                .params("_",System.currentTimeMillis()-60*1000)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {

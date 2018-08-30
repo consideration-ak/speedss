@@ -47,8 +47,12 @@ public abstract class PresenterActivity<Presenter extends BaseContract.Presenter
 
     @Override
     public void showError(int strRes) {
+        if(strRes == 0){
+            BaseApplication.showToast("请求结果错误");
+        }else {
+            BaseApplication.showToast(strRes);
+        }
         hideLoadingDialog();
-        BaseApplication.showToast(strRes);
     }
 
     private void hideLoadingDialog() {

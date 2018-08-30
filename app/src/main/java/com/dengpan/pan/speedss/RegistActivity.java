@@ -46,6 +46,8 @@ public class RegistActivity extends PresenterActivity<RegistContract.Presenter> 
     EditText et_password;
     @BindView(R.id.spinner)
     Spinner spinner;
+    @BindView(R.id.et_self_mail_code)
+    EditText et_self_mail_code;
 
     //需要用到的权限
     private String[] params = new String[]{
@@ -123,6 +125,11 @@ public class RegistActivity extends PresenterActivity<RegistContract.Presenter> 
     private boolean judgePermissions(){
 
         return EasyPermissions.hasPermissions(this,params);
+    }
+    @OnClick(R.id.btn_create_account_self)
+    void clickSelf(){
+        //手动注册
+        mPresenter.register(et_account.getText().toString(),"11111111",et_self_mail_code.getText().toString());
     }
 
     @Override

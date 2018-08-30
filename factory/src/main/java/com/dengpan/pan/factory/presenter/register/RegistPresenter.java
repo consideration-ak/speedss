@@ -89,7 +89,13 @@ public class RegistPresenter extends BasePresenter<RegistContract.View> implemen
             @Override
             public void onDataLoad(Result result) {
                 //开始接收邮件
-                receiveMail(account);
+                if(result.getRet() ==1) {
+                    receiveMail(account);
+                }else {
+                    if(getView()!= null){
+                        getView().showError(0);
+                    }
+                }
             }
 
             @Override

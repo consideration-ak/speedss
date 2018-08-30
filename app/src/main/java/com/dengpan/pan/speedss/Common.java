@@ -6,6 +6,6 @@ public class Common {
     public static final String COOKIE_SPEEDS="cfduid=d45075650c95fd74bb531b314085d67591527439718";
 
     //获得邮箱验证码的url
-    public static final String SENCODE_URL="https://speedss.top/auth/sendcode";
+    public static final String SENCODE_URL="https://speedss.xyz/auth/sendcode";
     public static final String GETMAIL_URL="http://www.bccto.me/getmail";
 }

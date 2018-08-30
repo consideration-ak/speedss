@@ -118,6 +118,11 @@ public class NetWork {
         headers.put("Cookie", Common.COOKIE_MAIL);
         return headers;
     }
+    public static HttpHeaders getMailCoderHeaders(){
+        HttpHeaders headers = getHeaders();
+        headers.put("Cookie", Common.COOKIE_GET_MAIL);
+        return headers;
+    }
     public static HttpHeaders getSpeedHeaders(){
         HttpHeaders headers = getHeaders();
         headers.put("Cookie", Common.COOKIE_SPEEDS);
