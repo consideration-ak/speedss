@@ -3,11 +3,14 @@ package com.dengpan.pan.factory.net;
 import com.dengpan.pan.common.Common;
 import com.dengpan.pan.factory.Factory;
 import com.lzy.okgo.OkGo;
+import com.lzy.okgo.cookie.store.MemoryCookieStore;
 import com.lzy.okgo.cookie.store.PersistentCookieStore;
 import com.lzy.okgo.model.HttpHeaders;
 import com.lzy.okgo.model.HttpParams;
 
 import java.util.logging.Level;
+
+import okhttp3.HttpUrl;
 
 /**
  * 网络相关的操作
@@ -71,8 +74,8 @@ public class NetWork {
                     .setRetryCount(0)
 
                     //如果不想让框架管理cookie（或者叫session的保持）,以下不需要
-//              .setCookieStore(new MemoryCookieStore())            //cookie使用内存缓存（app退出后，cookie消失）
-                    .setCookieStore(new PersistentCookieStore())        //cookie持久化存储，如果cookie不过期，则一直有效
+              .setCookieStore(new MemoryCookieStore())            //cookie使用内存缓存（app退出后，cookie消失）
+//                    .setCookieStore(new PersistentCookieStore())        //cookie持久化存储，如果cookie不过期，则一直有效
 
                     //可以设置https的证书,以下几种方案根据需要自己设置
                     .setCertificates()                                  //方法一：信任所有证书,不安全有风险
@@ -115,12 +118,15 @@ public class NetWork {
     }
     public static HttpHeaders getMailHeaders(){
         HttpHeaders headers = getHeaders();
-        headers.put("Cookie", Common.COOKIE_MAIL);
+        HttpUrl httpUrl = HttpUrl.parse(Common.APPLY_MAIL);
+        headers.put("Cookie", Common.COOKIE_GET_MAIL);
         return headers;
     }
     public static HttpHeaders getMailCoderHeaders(){
         HttpHeaders headers = getHeaders();
-        headers.put("Cookie", Common.COOKIE_GET_MAIL);
+//        headers.put("Cookie", Common.COOKIE_GET_MAIL);
+        HttpUrl httpUrl = HttpUrl.parse(Common.APPLY_MAIL);
+        headers.put("Cookie", OkGo.getInstance().getCookieJar().getCookieStore().getCookie(httpUrl).toString());
         return headers;
     }
     public static HttpHeaders getSpeedHeaders(){

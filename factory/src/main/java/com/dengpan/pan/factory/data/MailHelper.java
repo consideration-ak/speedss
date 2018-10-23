@@ -103,7 +103,7 @@ public class MailHelper {
      */
     public static void visitMail(String url, final DataSource.Callback<String> callback) {
         OkGo.get(url)
-                .headers(NetWork.getMailHeaders())
+                .headers(NetWork.getMailCoderHeaders())
 //                .params("If-None-Match","\"dd3e83b417fbfe861146392f1734996f80755598\"")
                 .execute(new StringCallback() {
                     @Override

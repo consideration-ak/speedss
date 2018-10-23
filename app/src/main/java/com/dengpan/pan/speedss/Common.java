@@ -7,5 +7,5 @@ public class Common {
 
     //获得邮箱验证码的url
     public static final String SENCODE_URL="https://speedss.xyz/auth/sendcode";
-    public static final String GETMAIL_URL="http://www.bccto.me/getmail";
+    public static final String GETMAIL_URL="http://mail.ntbdz.top/getmail";
 }

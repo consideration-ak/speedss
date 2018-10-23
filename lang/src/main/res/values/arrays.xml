@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="mail_host">
+        <item>\&#064;mail.ntbdz.top</item>
         <item>\&#064;www.bccto.me</item>
         <item>\&#064;bccto.me</item>
         <item>\&#064;11163.com</item>
