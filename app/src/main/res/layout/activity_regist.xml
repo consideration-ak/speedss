@@ -104,21 +104,39 @@
         android:layout_marginTop="20dp"
         android:layout_centerInParent="true"
         />
-    <Button
+    <LinearLayout
+        android:id="@+id/ll_download_apk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+
+        android:layout_below="@+id/btn_create_account"
+        android:layout_marginTop="20dp">
+        <Button
         android:id="@+id/btn_downloadApk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="点击下载手机端APK"
-        android:layout_below="@+id/btn_create_account"
-        android:layout_marginTop="20dp"
-        android:layout_centerInParent="true"
+        android:text="老版本客户端下载"
+
         />
+        <Button
+            android:id="@+id/btn_new_downloadApk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:text="新版客户端下载"
+
+            />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/btn_check_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="查看已注册账户列表"
-        android:layout_below="@+id/btn_downloadApk"
+        android:layout_below="@+id/ll_download_apk"
         android:layout_marginTop="20dp"
         android:layout_centerInParent="true"
         />

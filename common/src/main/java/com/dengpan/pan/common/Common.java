@@ -16,6 +16,7 @@ public class Common {
     public static final String APPLY_MAIL ="http://mail.ntbdz.top/applymail";
     //apk 下载地址
     public static final String apkUrl = "https://download.speedss.xyz/v2rayNG_universal.apk";
+    public static final String newApkUrl = "https://download.speedss.xyz/BifrostV_v0.5.8.apk";
     //邮箱查看的基本地址
     public static String baseMailUrl = "http://mail.ntbdz.top/win/%s/%s";
     public static String basess= "http://mail.ntbdz.top/win/hct66r2l(a)11163-_-com/GuRzAp5qlRHYvr098A4HG3.eml";
