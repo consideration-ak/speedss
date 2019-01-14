@@ -60,7 +60,7 @@ public class RegistPresenter extends BasePresenter<RegistContract.View> implemen
         }
         this.account = accout;
         this.password = password;
-        MailHelper.applyMail(accout, new DataSource.Callback<ApplyMail>() {
+        MailHelper.getInstance().applyMail(accout, new DataSource.Callback<ApplyMail>() {
             @Override
             public void onDataNotAvailable(int strRes) {
                 if(getView()!= null){
@@ -118,7 +118,7 @@ public class RegistPresenter extends BasePresenter<RegistContract.View> implemen
             getView().progress("正在接收邮箱验证码.....");
         }
 
-       MailHelper.receiveMailCode(account,(System.currentTimeMillis()/1000),new DataSource.Callback<MailResult>(){
+       MailHelper.getInstance().receiveMailCode(account,(System.currentTimeMillis()/1000),new DataSource.Callback<MailResult>(){
 
                     @Override
                     public void onDataLoad(MailResult result) {
@@ -162,7 +162,7 @@ public class RegistPresenter extends BasePresenter<RegistContract.View> implemen
         if(getView() != null){
             getView().progress("正在接收邮箱验证码2.....");
         }
-        MailHelper.visitMail(url,new DataSource.Callback<String>(){
+        MailHelper.getInstance().visitMail(url,new DataSource.Callback<String>(){
 
             @Override
             public void onDataLoad(String s) {

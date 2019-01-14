@@ -6,7 +6,7 @@ android {
         config {
             keyAlias 'dengpan'
             keyPassword '123456'
-            storeFile file('E:/androidstudio/speedss/keystore.jks')
+            storeFile file('D:/SoftRoot/Android/AndroidWorkspace/speedss/keystore.jks')
             storePassword '123456'
         }
     }

@@ -22,4 +22,17 @@ public class Common {
     public static String basess= "http://mail.ntbdz.top/win/hct66r2l(a)11163-_-com/GuRzAp5qlRHYvr098A4HG3.eml";
     //注册的地址
     public static final String REGISTER_URL=BASE_URL_SPEEDSS+"auth/register";
+
+
+    /**
+     *://www.guerrillamail.com/zh/inbox 这部分得资源地址
+     *
+     * email_user: woaini1
+     lang: zh
+     site: guerrillamail.com
+     in:  设置 取消
+     *
+     **/
+    public static final String RIGISTER_URL_IN_GUER = "https://www.guerrillamail.com/ajax.php?f=set_email_user";
+
 }
