@@ -1,9 +1,15 @@
 package com.dengpan.pan.factory.data.mail;
 
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.dengpan.pan.common.Common;
 import com.dengpan.pan.common.factory.data.DataSource;
+import com.dengpan.pan.factory.Factory;
+import com.dengpan.pan.factory.R;
+import com.dengpan.pan.factory.model.ApplyMail;
+import com.dengpan.pan.factory.model.GuerApplyMailBean;
+import com.dengpan.pan.factory.model.GuerGetMailCodeBean;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
 
@@ -22,7 +28,7 @@ import okhttp3.Response;
 public class Guerrillamail implements MailContract {
 
     @Override
-    public void generateMail(String name, String domain, DataSource.Callback callback) {
+    public void generateMail(String name, String domain, final DataSource.Callback callback) {
         Map<String,String> params = new HashMap<>();
         params.put("email_user",name);
         params.put("lang","zh");
@@ -34,17 +40,70 @@ public class Guerrillamail implements MailContract {
                     @Override
                     public void onSuccess(String s, Call call, Response response) {
                         Log.i(this.getClass().getSimpleName(),s);
+                        if(!TextUtils.isEmpty(s)){
+                            GuerApplyMailBean applyMail = Factory.getGson().fromJson(s, GuerApplyMailBean.class);
+
+                                callback.onDataLoad(applyMail.getEmail_addr());
+                                //1 点击发送邮箱
+//                                getEmailCode(account);
+                                //2 等待邮箱接收
+//                                showToast(applyMail.getUser());
+                                return;
+                        }
+                        callback.onDataNotAvailable(R.string.ERROR_APPLY_MAIL);
                     }
                 });
     }
 
     @Override
-    public void receiveMailCode(String account, DataSource.Callback callback) {
+    public void receiveMailCode(final String account, final DataSource.Callback callback) {
+        //f=check_email&seq=1&site=guerrillamail.com&in=wangzhe&_=1547523859933
+        String[] accounts = account.split("@");
+        Map<String,String> params = new HashMap<>();
+        params.put("f","");
+        params.put("seq","1");
+        params.put("site",accounts[1]);//这里是可以变动得
+        params.put("in",accounts[0]);
+        params.put("_",System.currentTimeMillis()+"");
+        OkGo.get(Common.GET_MAIL_CODE)
+                .params(params)
+                .execute(new StringCallback() {
+                    @Override
+                    public void onSuccess(String s, Call call, Response response) {
+                        if(!TextUtils.isEmpty(s)){
+                            GuerGetMailCodeBean getCode = Factory.getGson().fromJson(s, GuerGetMailCodeBean.class);
 
+                            if(getCode == null || getCode.getList() ==null || getCode.getList().size() == 0){
+                                getMailCode("",callback);
+                            }else {
+                                getMailCode(getCode.getList().get(0).getMail_excerpt(),callback);
+                            }
+                            //1 点击发送邮箱
+//                                getEmailCode(account);
+                            //2 等待邮箱接收
+//                                showToast(applyMail.getUser());
+                            return;
+                        }else {
+                            getMailCode("",callback);
+                        }
+                    }
+                });
     }
 
+    /**
+     * 负责解析 code 并且返回
+     * @param content 邮件得内容   尊敬的用户：
+    您的邮箱验证代码为: X6qnJF5r，请在网页中填写，完成验证。(本验证代码有效期 30 分钟)Speedss
+     * @param callback
+     */
     @Override
-    public void getMailCode(String url, DataSource.Callback callback) {
-
+    public void getMailCode(String content, DataSource.Callback callback) {
+        if(TextUtils.isEmpty(content)) callback.onDataNotAvailable(R.string.ERROR_PARSE_MAIL_CODE_NET);
+        try {
+            String code = content.split("，")[0].split(": ")[1];
+            callback.onDataLoad(code);
+        }catch (Exception e){
+            callback.onDataNotAvailable(R.string.ERROR_PARSE_MAIL_CODE_NET);
+        }
     }
 }

@@ -49,7 +49,7 @@ public class MailHelper {
      * @param account
      * @param callback
      */
-    public void applyMail(String account,final DataSource.Callback<ApplyMail> callback) {
+    public void applyMail(String account,final DataSource.Callback<String> callback) {
         contract.generateMail(account, "",callback);
 
     }
@@ -60,17 +60,21 @@ public class MailHelper {
      * @param time
      * @param callback
      */
-    public  void receiveMailCode(String account, long time, final DataSource.Callback<MailResult> callback) {
+    public  void receiveMailCode(String account, long time, final DataSource.Callback<String> callback) {
         contract.receiveMailCode(account,callback);
 
     }
 
-    /**
-     * 访问邮件的地址
-     * @param url
-     * @param callback
-     */
-    public  void visitMail(String url, final DataSource.Callback<String> callback) {
-        contract.getMailCode(url,callback);
+//    /**
+//     * 访问邮件的地址  交给每个子类去实现
+//     * @param url
+//     * @param callback
+//     */
+//    public  void visitMail(String url, final DataSource.Callback<String> callback) {
+//        contract.getMailCode(url,callback);
+//    }
+
+    public void setContract(MailContract contract){
+        this.contract = contract;
     }
 }

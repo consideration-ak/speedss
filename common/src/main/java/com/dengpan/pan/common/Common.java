@@ -13,7 +13,7 @@ public class Common {
     //获取邮件
     public static final String GETMAIL_URL="http://mail.ntbdz.top/getmail";
     //激活一个邮箱
-    public static final String APPLY_MAIL ="http://mail.ntbdz.top/applymail";
+    public static final String APPLY_MAIL ="http://www.bccto.me/applymail";
     //apk 下载地址
     public static final String apkUrl = "https://download.speedss.xyz/v2rayNG_universal.apk";
     public static final String newApkUrl = "https://download.speedss.xyz/BifrostV_v0.5.8.apk";
@@ -34,5 +34,6 @@ public class Common {
      *
      **/
     public static final String RIGISTER_URL_IN_GUER = "https://www.guerrillamail.com/ajax.php?f=set_email_user";
+    public static final String GET_MAIL_CODE = "https://www.guerrillamail.com/ajax.php?f=check_email&seq=1&site=guerrillamail.com&in=wangzhe&_=1547523859933";
 
 }

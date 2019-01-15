@@ -3,6 +3,7 @@ package com.dengpan.pan.factory.data.mail;
 import com.dengpan.pan.common.factory.data.DataSource;
 
 public interface MailContract {
+
     /**
      * 生成邮箱
      * @param name 定制得个性名称

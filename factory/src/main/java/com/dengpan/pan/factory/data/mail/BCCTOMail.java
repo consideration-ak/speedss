@@ -20,8 +20,11 @@ import okhttp3.Call;
 import okhttp3.Response;
 
 public class BCCTOMail implements MailContract {
+    String address = "";//临时变量
+
     @Override
     public void generateMail(String name, String domain, final DataSource.Callback callback) {
+        address = name+domain;
         OkGo.post(Common.APPLY_MAIL)
                 .headers(NetWork.getMailHeaders())
                 .params("mail",name+domain)
@@ -54,7 +57,7 @@ public class BCCTOMail implements MailContract {
     }
 
     @Override
-    public void receiveMailCode(String account, final DataSource.Callback callback) {
+    public void receiveMailCode(final String account, final DataSource.Callback callback) {
         OkGo.getInstance().cancelTag("getMailCode");
         OkGo.post(Common.GETMAIL_URL)
                 .headers(NetWork.getMailCoderHeaders())
@@ -68,7 +71,19 @@ public class BCCTOMail implements MailContract {
                         Log.i(this.getClass().getSimpleName(),s);
                         if(!TextUtils.isEmpty(s)){
                             MailResult result = Factory.getGson().fromJson(s, MailResult.class);
-                            callback.onDataLoad(result);
+                            if(result.getMail().size()>0){
+//                                String[] split = account.split("@");
+                                String url = account.replace("@", "(a)").replaceFirst("\\.", "-_-");
+                                String format = String.format(Common.baseMailUrl, s, result.getMail().get(0).get(4));
+                                Log.e("网页的地址为：",format);
+//                                    parseCode(format);
+                                getMailCode(format,callback);
+                                //解析网页获得code
+                                return;
+                            }else {
+                                callback.onDataNotAvailable(R.string.ERROR_RECEIVE_MAIN_URL_NET);
+                            }
+//                            callback.onDataLoad(result);
                         }else {
                             callback.onDataNotAvailable(R.string.ERROR_RECEIVE_MAIN_URL_NET);
                         }
