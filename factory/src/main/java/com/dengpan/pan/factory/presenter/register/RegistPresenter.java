@@ -18,9 +18,6 @@ import com.dengpan.pan.factory.R;
 import com.dengpan.pan.factory.data.DbHelper;
 import com.dengpan.pan.factory.data.MailHelper;
 import com.dengpan.pan.factory.data.SpeedSSHelper;
-import com.dengpan.pan.factory.data.mail.BCCTOMail;
-import com.dengpan.pan.factory.model.ApplyMail;
-import com.dengpan.pan.factory.model.MailResult;
 import com.dengpan.pan.factory.model.Result;
 import com.dengpan.pan.factory.net.DownloadHelper;
 
