@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.dengpan.pan.common.Common;
 import com.dengpan.pan.common.factory.data.DataSource;
+import com.dengpan.pan.common.utils.LogUtil;
 import com.dengpan.pan.factory.Factory;
 import com.dengpan.pan.factory.R;
 import com.dengpan.pan.factory.model.ApplyMail;
@@ -42,7 +43,7 @@ public class Guerrillamail implements MailContract {
                         Log.i(this.getClass().getSimpleName(),s);
                         if(!TextUtils.isEmpty(s)){
                             GuerApplyMailBean applyMail = Factory.getGson().fromJson(s, GuerApplyMailBean.class);
-
+                            LogUtil.logI("生成Email:",applyMail.getEmail_addr());
                                 callback.onDataLoad(applyMail.getEmail_addr());
                                 //1 点击发送邮箱
 //                                getEmailCode(account);
@@ -60,10 +61,10 @@ public class Guerrillamail implements MailContract {
         //f=check_email&seq=1&site=guerrillamail.com&in=wangzhe&_=1547523859933
         String[] accounts = account.split("@");
         Map<String,String> params = new HashMap<>();
-        params.put("f","");
+        params.put("f","check_email");
         params.put("seq","1");
-        params.put("site",accounts[1]);//这里是可以变动得
-        params.put("in",accounts[0]);
+        params.put("site","guerrillamail.com");//这里是可以变动得
+        params.put("in","设置 取消");
         params.put("_",System.currentTimeMillis()+"");
         OkGo.get(Common.GET_MAIL_CODE)
                 .params(params)
@@ -72,9 +73,9 @@ public class Guerrillamail implements MailContract {
                     public void onSuccess(String s, Call call, Response response) {
                         if(!TextUtils.isEmpty(s)){
                             GuerGetMailCodeBean getCode = Factory.getGson().fromJson(s, GuerGetMailCodeBean.class);
-
+                            LogUtil.logI("获取Email:",getCode.toString());
                             if(getCode == null || getCode.getList() ==null || getCode.getList().size() == 0){
-                                getMailCode("",callback);
+                                callback.onDataLoad("");
                             }else {
                                 getMailCode(getCode.getList().get(0).getMail_excerpt(),callback);
                             }
@@ -84,8 +85,14 @@ public class Guerrillamail implements MailContract {
 //                                showToast(applyMail.getUser());
                             return;
                         }else {
-                            getMailCode("",callback);
+                            callback.onDataLoad("");
                         }
+                    }
+
+                    @Override
+                    public void onError(Call call, Response response, Exception e) {
+                        super.onError(call, response, e);
+                        callback.onDataNotAvailable(R.string.ERROR_PARSE_MAIL_CODE_NET);
                     }
                 });
     }
@@ -98,6 +105,7 @@ public class Guerrillamail implements MailContract {
      */
     @Override
     public void getMailCode(String content, DataSource.Callback callback) {
+        LogUtil.logI("获取EmailCode:","Content："+content);
         if(TextUtils.isEmpty(content)) callback.onDataNotAvailable(R.string.ERROR_PARSE_MAIL_CODE_NET);
         try {
             String code = content.split("，")[0].split(": ")[1];

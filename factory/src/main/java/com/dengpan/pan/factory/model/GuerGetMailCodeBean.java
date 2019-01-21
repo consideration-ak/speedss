@@ -267,4 +267,18 @@ public class GuerGetMailCodeBean {
             this.mail_size = mail_size;
         }
     }
+
+    @Override
+    public String toString() {
+        return "GuerGetMailCodeBean{" +
+                "count='" + count + '\'' +
+                ", email='" + email + '\'' +
+                ", alias='" + alias + '\'' +
+                ", ts=" + ts +
+                ", sid_token='" + sid_token + '\'' +
+                ", stats=" + stats +
+                ", auth=" + auth +
+                ", list=" + list +
+                '}';
+    }
 }

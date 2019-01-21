@@ -13,6 +13,7 @@ import android.util.Log;
 import com.dengpan.pan.common.Common;
 import com.dengpan.pan.common.factory.data.DataSource;
 import com.dengpan.pan.common.factory.presenter.BasePresenter;
+import com.dengpan.pan.common.utils.LogUtil;
 import com.dengpan.pan.common.utils.StringUtil;
 import com.dengpan.pan.factory.R;
 import com.dengpan.pan.factory.data.DbHelper;
@@ -86,6 +87,7 @@ public class RegistPresenter extends BasePresenter<RegistContract.View> implemen
         if (getView() != null) {
             getView().progress("正在发送邮箱验证码....");
         }
+        LogUtil.logI("发送验证码的账户",account);
         SpeedSSHelper.sendMailCode(account, new DataSource.Callback<Result>() {
 
             @Override
@@ -120,7 +122,6 @@ public class RegistPresenter extends BasePresenter<RegistContract.View> implemen
         if (getView() != null) {
             getView().progress("正在接收邮箱验证码.....");
         }
-
         MailHelper.getInstance().receiveMailCode(account, (System.currentTimeMillis() / 1000), new DataSource.Callback<String>() {
 
             @Override
@@ -132,15 +133,16 @@ public class RegistPresenter extends BasePresenter<RegistContract.View> implemen
                 } else {
                     Message message = Message.obtain();
                     message.obj = account;
-                    handler.sendMessageDelayed(message, 2000);
+                    handler.sendMessageDelayed(message, 3000);
                 }
             }
 
             @Override
             public void onDataNotAvailable(int strRes) {
-                Message message = Message.obtain();
-                message.obj = account;
-                handler.sendMessageDelayed(message, 2000);
+//                Message message = Message.obtain();
+//                message.obj = account;
+//                handler.sendMessageDelayed(message, 2000);
+                getView().showError(strRes);
             }
         });
 
@@ -191,6 +193,7 @@ public class RegistPresenter extends BasePresenter<RegistContract.View> implemen
         if (getView() != null) {
             getView().progress("正在注册.....");
         }
+        LogUtil.logI("正在注册","邮箱"+account+"验证码"+code);
         SpeedSSHelper.register(account, password, code, new DataSource.Callback<Result>() {
 
             @Override

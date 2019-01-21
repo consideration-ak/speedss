@@ -41,7 +41,7 @@ public class NetWork {
         headers.put("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         HttpParams params = new HttpParams();
 //        params.put("name", "speedstest");
-        params.put("code", "");
+//        params.put("code", "");
         params.put("repasswd","管道工");
 //        params.put("fingerprint", "3440998635");
 

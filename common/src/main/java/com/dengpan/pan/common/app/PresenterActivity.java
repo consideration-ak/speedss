@@ -55,7 +55,7 @@ public abstract class PresenterActivity<Presenter extends BaseContract.Presenter
         hideLoadingDialog();
     }
 
-    private void hideLoadingDialog() {
+    public void hideLoadingDialog() {
         if(mLoadingDialog != null){
             mLoadingDialog.dismiss();
             mLoadingDialog= null;

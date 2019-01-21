@@ -66,6 +66,7 @@ public class SpeedSSHelper {
                 .headers(NetWork.getSpeedHeaders())
                 .params("email", account)//  这里不要使用params，upString 与 params 是互斥的，只有 upString 的数据会被上传
                 .params("passwd", password)
+                .params("code","396927375@qq.com")
                 .params("name", StringUtil.getRandomStr())
                 .params("verifycode",code)
                 .params("fingerprint", StringUtil.generateRandomNumber(10) + "")

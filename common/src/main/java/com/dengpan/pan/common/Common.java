@@ -34,6 +34,7 @@ public class Common {
      *
      **/
     public static final String RIGISTER_URL_IN_GUER = "https://www.guerrillamail.com/ajax.php?f=set_email_user";
-    public static final String GET_MAIL_CODE = "https://www.guerrillamail.com/ajax.php?f=check_email&seq=1&site=guerrillamail.com&in=wangzhe&_=1547523859933";
+    //https://www.guerrillamail.com/ajax.php?f=check_email&seq=1&site=guerrillamail.com&in=+Set+cancel&_=1548040218359
+    public static final String GET_MAIL_CODE = "https://www.guerrillamail.com/ajax.php";
 
 }
