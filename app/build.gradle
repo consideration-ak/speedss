@@ -53,6 +53,9 @@ dependencies {
     implementation 'org.jsoup:jsoup:1.11.3'
     //动态权限
     implementation 'pub.devrel:easypermissions:1.2.0'
+    //webView 相关
+    implementation 'com.just.agentweb:agentweb:4.0.2'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.30'
     implementation project(':common')
     implementation project(':factory')
 }

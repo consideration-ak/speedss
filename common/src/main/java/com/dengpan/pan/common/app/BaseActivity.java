@@ -1,5 +1,7 @@
 package com.dengpan.pan.common.app;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity{
+    public static void show(Context context,Class clazz){
+        Intent intent = new Intent(context,clazz);
+        context.startActivity(intent);
+    }
+    public static void showNoFinish(Context context,Class clazz){
+        Intent intent = new Intent(context,clazz);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        context.startActivity(intent);
+    }
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

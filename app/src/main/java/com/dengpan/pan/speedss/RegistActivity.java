@@ -24,6 +24,8 @@ import com.dengpan.pan.common.app.PresenterActivity;
 import com.dengpan.pan.factory.model.Result;
 import com.dengpan.pan.factory.presenter.register.RegistContract;
 import com.dengpan.pan.factory.presenter.register.RegistPresenter;
+import com.dengpan.pan.speedss.act.TempMailListActivity;
+import com.dengpan.pan.speedss.act.WebViewActivity;
 
 import java.util.List;
 
@@ -151,6 +153,17 @@ public class RegistActivity extends PresenterActivity<RegistContract.Presenter> 
             }
         }else {
             installApk(uri);
+        }
+    }
+    @OnClick({R.id.btn_temp_mail,R.id.btn_go_web})
+    public void onClick(View view){
+        switch (view.getId()){
+            case R.id.btn_temp_mail:
+                TempMailListActivity.showNoFinish(this,TempMailListActivity.class);
+                break;
+            case R.id.btn_go_web:
+                WebViewActivity.showNoFinish(this,WebViewActivity.class);
+                break;
         }
     }
 

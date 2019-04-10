@@ -95,15 +95,31 @@
             />
 
     </LinearLayout>
-    <Button
-        android:id="@+id/btn_create_account"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/ll_get_account_container"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="获取账号ss账号"
         android:layout_below="@+id/self_mail_code"
         android:layout_marginTop="20dp"
+        android:gravity="center"
         android:layout_centerInParent="true"
-        />
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/btn_create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="获取账号ss账号"
+
+            />
+        <Button
+            android:id="@+id/btn_go_web"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="切换WebView"
+
+            />
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/ll_download_apk"
         android:layout_width="wrap_content"
@@ -111,7 +127,7 @@
         android:gravity="center"
         android:layout_centerInParent="true"
 
-        android:layout_below="@+id/btn_create_account"
+        android:layout_below="@+id/ll_get_account_container"
         android:layout_marginTop="20dp">
         <Button
         android:id="@+id/btn_downloadApk"
@@ -130,15 +146,29 @@
             />
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_check_list"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="查看已注册账户列表"
-        android:layout_below="@+id/ll_download_apk"
+        android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:layout_centerInParent="true"
-        />
+        android:gravity="center"
+        android:layout_below="@+id/ll_download_apk"
+        >
+        <Button
+            android:id="@+id/btn_check_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看已注册账户列表"
+            />
+        <Button
+            android:id="@+id/btn_temp_mail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打开临时邮箱列表"/>
+
+    </LinearLayout>
+
+
 
 </RelativeLayout>

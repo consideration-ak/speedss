@@ -20,6 +20,11 @@
         <!-- Customize your theme here. -->
         <item name="android:windowNoTitle">true</item>
     </style>
+    <style name="line_horizontal_1px">
+        <item name="android:color">@color/colorPrimaryDark</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1px</item>
+    </style>
 
 
 </resources>
