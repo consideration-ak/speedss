@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".act.SelfRegistActivity">
+
+    <TextView
+        android:id="@+id/tv_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:padding="@dimen/dp_10"
+        android:gravity="center"
+        android:text="自己输入邮箱，点击获取验证码，然后输入验证码和密码进行注册，密码默认是12345678 目前是支持的是QQ 邮箱 网易邮箱 微软邮箱 苹果ID"/>
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/app_name"
+        android:layout_marginTop="@dimen/dp_40"
+        android:textColor="@color/colorAccent"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_40"
+        android:padding="@dimen/dp_10">
+
+
+        <Button
+            android:id="@+id/btnGetCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:layout_alignParentEnd="true"
+            android:text="@string/getVerifyCode"/>
+        <EditText
+            android:id="@+id/etSelfMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/btnGetCode"
+            android:hint="@string/inputEmail"/>
+    </RelativeLayout>
+    <EditText
+        android:id="@+id/etVerifyCode"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/dp_10"
+        android:layout_height="wrap_content"
+        android:hint="请输入验证码"/>
+    <EditText
+        android:id="@+id/etSelfPassword"
+        android:layout_width="match_parent"
+        android:hint="输入密码"
+        android:layout_margin="@dimen/dp_10"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_margin="@dimen/dp_10"
+        android:layout_height="wrap_content"
+        android:text="@string/register"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_10">
+        <Button
+            android:id="@+id/btnMailList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已经注册的列表"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.LinearLayoutCompat>

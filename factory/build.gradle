@@ -1,11 +1,10 @@
 apply plugin: 'com.android.library'
-
 android {
     signingConfigs {
         config {
             keyAlias 'dengpan'
             keyPassword '123456'
-            storeFile file('E:/androidstudio/speedss/keystore.jks')
+            storeFile file('/Users/dengpan/Documents/androidworkspace/myproject/speedss/keystore.jks')
             storePassword '123456'
         }
     }
@@ -30,6 +29,8 @@ android {
         }
     }
 }
+//def dbflow_version = "5.0.0-alpha1"
+def dbflow_version = "4.2.4"
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
@@ -41,8 +42,13 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.2.4'
     implementation 'com.lzy.net:okgo:2.1.4'
     implementation 'org.jsoup:jsoup:1.11.3'
-    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:4.2.4"
-    api 'com.github.Raizlabs.DBFlow:dbflow-core:4.2.4'
-    api 'com.github.Raizlabs.DBFlow:dbflow:4.2.4'
+    annotationProcessor "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    api "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    api "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+//    annotationProcessor "com.github.agrosner.dbflow:processor:${dbflow_version}"
+//    implementation "com.github.agrosner.dbflow:core:${dbflow_version}"
+//    implementation "com.github.agrosner.dbflow:lib:${dbflow_version}"
+//    api 'com.github.agrosner.dbflow:dbflow-core:4.2.4'
+//    api 'com.github.agrosner.dbflow:dbflow:4.2.4'
     implementation project(':lang')
 }

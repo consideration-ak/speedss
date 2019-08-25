@@ -6,7 +6,7 @@ android {
         config {
             keyAlias 'dengpan'
             keyPassword '123456'
-            storeFile file('D:/SoftRoot/Android/AndroidWorkspace/speedss/keystore.jks')
+            storeFile file('/Users/dengpan/Documents/androidworkspace/myproject/speedss/keystore.jks')
             storePassword '123456'
         }
     }
@@ -18,7 +18,7 @@ android {
         versionCode 2
         versionName "2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-        signingConfig signingConfigs.config
+//        signingConfig signingConfigs.config
     }
     buildTypes {
         release {
