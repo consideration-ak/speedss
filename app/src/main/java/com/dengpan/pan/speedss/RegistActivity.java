@@ -207,7 +207,7 @@ public class RegistActivity extends PresenterActivity<RegistContract.Presenter> 
         Intent intent = new Intent(Intent.ACTION_VIEW);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             //如果是7.0以上的系统，要使用FileProvider的方式构建Uri
-//            Uri uri = FileProvider.getUriForFile(this, "com.hm.retrofitrxjavademo.fileprovider", new File(path));
+//            Uri uri = FileProvider.getUriForFile(clickSelf();, "com.hm.retrofitrxjavademo.fileprovider", new File(path));
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             intent.setDataAndType(uri, "application/vnd.android.package-archive");
         } else {
