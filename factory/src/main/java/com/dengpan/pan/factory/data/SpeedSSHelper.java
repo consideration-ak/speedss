@@ -41,8 +41,8 @@ public class SpeedSSHelper {
                                 callback.onDataLoad(result);
                                 return;
                             }
+                            callback.onDataLoad(result);
                         }
-                        callback.onDataNotAvailable(R.string.ERROR_SEND_MAIL_CODE);
 
                     }
 
